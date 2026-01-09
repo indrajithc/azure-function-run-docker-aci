@@ -70,6 +70,20 @@ async function createContainer(
             resources: {
               requests: { cpu: CONFIG.CPU, memoryInGB: CONFIG.MEMORY_GB },
             },
+            environmentVariables: [
+              {
+                name: "AZURE_STORAGE_CONNECTION_STRING",
+                secureValue: process.env.AZURE_STORAGE_CONNECTION_STRING,
+              },
+              {
+                name: "AZURE_STORAGE_CONTAINER",
+                value: process.env.AZURE_STORAGE_CONTAINER || "",
+              },
+              {
+                name: "NODE_ENV",
+                value: "production",
+              },
+            ],
           },
         ],
         restartPolicy: "Never",
