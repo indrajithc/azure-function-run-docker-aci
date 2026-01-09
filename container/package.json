@@ -1,0 +1,20 @@
+{
+  "name": "azure-blob-storage-test",
+  "version": "1.0.0",
+  "description": "Test application for Azure Blob Storage uploads",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [
+    "azure",
+    "blob-storage",
+    "test"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@azure/storage-blob": "^12.24.0"
+  }
+}

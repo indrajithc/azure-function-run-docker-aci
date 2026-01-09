@@ -1,7 +1,15 @@
-FROM node:18
-WORKDIR /app
-COPY app.js .
-CMD ["node", "app.js"]
+# ---- Base image ----
+FROM node:20-alpine
 
-# docker build -t hello-aci .
-# docker run --rm hello-aci
+# ---- App directory ----
+WORKDIR /app
+
+# ---- Install only required package ----
+RUN npm init -y \
+  && npm install @azure/storage-blob
+
+# ---- Copy app ----
+COPY app.js .
+
+# ---- Run app ----
+CMD ["node", "app.js"]
